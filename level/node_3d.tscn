@@ -1,0 +1,310 @@
+[gd_scene format=3 uid="uid://c3kqvg22mbfyw"]
+
+[ext_resource type="FontFile" uid="uid://ckqpcjaa1xw3i" path="res://UI/fonts/Pixeled.ttf" id="1_jxtbs"]
+[ext_resource type="Script" uid="uid://dkprbocv1ravl" path="res://level/timelogic/time_manager.gd" id="1_upuyy"]
+[ext_resource type="PackedScene" uid="uid://cws3piofvwyhb" path="res://items/testdrink.tscn" id="2_1pn5f"]
+[ext_resource type="Texture2D" uid="uid://b1e86338jyktv" path="res://UI/assets/meds_icon.png" id="2_3o2rs"]
+[ext_resource type="PackedScene" uid="uid://d0lpmtrupyxcu" path="res://items/testfood.tscn" id="2_igwun"]
+[ext_resource type="PackedScene" uid="uid://dgq5kmbg3qu0c" path="res://items/testmeds.tscn" id="3_3o2rs"]
+[ext_resource type="Script" uid="uid://l24cb1k7gbx3" path="res://level/timelogic/timelabel.gd" id="4_tdvq3"]
+[ext_resource type="Script" uid="uid://bfgn5jhlm0hna" path="res://level/day.gd" id="5_7htfv"]
+[ext_resource type="PackedScene" uid="uid://d26e6n5lwabnw" path="res://items/Test_medicine.tscn" id="6_igwun"]
+[ext_resource type="Script" uid="uid://y0yg77qoe0xi" path="res://level/workstation/workstation_manager.gd" id="6_tdvq3"]
+[ext_resource type="Script" uid="uid://bv8g8154y08ni" path="res://level/workstation/workstation_slot.gd" id="6_upuyy"]
+[ext_resource type="PackedScene" uid="uid://g4pmaiif31b5" path="res://items/test_filler.tscn" id="9_igwun"]
+[ext_resource type="PackedScene" uid="uid://d0hue4fvdqiet" path="res://items/test_base.tscn" id="10_1pn5f"]
+[ext_resource type="PackedScene" uid="uid://dq2n2u8q41xsv" path="res://player/Player.tscn" id="16_7htfv"]
+[ext_resource type="PackedScene" uid="uid://c0gsa2pogs53j" path="res://level/furniture/bed.tscn" id="17_oxx4a"]
+[ext_resource type="PackedScene" uid="uid://ntq224nsy6pt" path="res://UI/control.tscn" id="18_inventory_ui"]
+[ext_resource type="Script" uid="uid://5f67vwevn6ly" path="res://UI/hud.gd" id="19_hud"]
+[ext_resource type="PackedScene" path="res://crafting/tarp/crafting_tarp_folded.tscn" id="20_tarp"]
+[ext_resource type="Script" uid="uid://bogb0qv88a3is" path="res://UI/crosshair.gd" id="21_crosshair"]
+[ext_resource type="PackedScene" path="res://UI/pause_menu.tscn" id="22_pause"]
+[ext_resource type="PackedScene" path="res://items/heavy_wardrobe.tscn" id="23_wardrobe"]
+[ext_resource type="PackedScene" path="res://level/furniture/crouch_overhang.tscn" id="24_crouch"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_noarx"]
+sky_material = SubResource("ProceduralSkyMaterial_a202f")
+
+[sub_resource type="Environment" id="Environment_a0tk4"]
+background_mode = 2
+sky = SubResource("Sky_noarx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e2mbt"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_noarx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pn5f"]
+albedo_color = Color(0.361665, 0.32551, 0.0802593, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdvq3"]
+size = Vector3(0.97198486, 1, 0.19916992)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hbo4u"]
+font = ExtResource("1_jxtbs")
+
+[node name="Node3D" type="Node3D" unique_id=1091554447]
+
+[node name="Systems" type="Node" parent="." unique_id=496116348]
+
+[node name="TimeManager" type="Node3D" parent="Systems" unique_id=910842320 groups=["time_manager"]]
+script = ExtResource("1_upuyy")
+
+[node name="Environment" type="Node3D" parent="." unique_id=734381209]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=425395644]
+transform = Transform3D(-0.8660253, -0.4330129, 0.2500001, 0, 0.49999994, 0.86602545, -0.50000024, 0.74999994, -0.43301257, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1981437248]
+environment = SubResource("Environment_a0tk4")
+
+[node name="MapGeometry" type="Node3D" parent="." unique_id=814191704]
+
+[node name="Floor" type="StaticBody3D" parent="MapGeometry" unique_id=2010760234]
+transform = Transform3D(66, 0, 0, 0, 66, 0, 0, 0, 66, 0, 0, 0)
+collision_layer = 3
+collision_priority = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapGeometry/Floor" unique_id=762588471]
+shape = SubResource("ConcavePolygonShape3D_e2mbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MapGeometry/Floor" unique_id=1110738412]
+mesh = SubResource("PlaneMesh_noarx")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1pn5f")
+
+[node name="WorldObjects" type="Node3D" parent="." unique_id=1801918557]
+
+[node name="Furniture" type="Node3D" parent="WorldObjects" unique_id=1302090072]
+
+[node name="Bed" parent="WorldObjects/Furniture" unique_id=582852381 instance=ExtResource("17_oxx4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
+
+[node name="CrouchOverhang" parent="WorldObjects/Furniture" instance=ExtResource("24_crouch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 3.5)
+
+[node name="Workstations" type="Node3D" parent="WorldObjects" unique_id=59261184]
+
+[node name="MedicineWorkstation" type="CSGBox3D" parent="WorldObjects/Workstations" unique_id=277098022 node_paths=PackedStringArray("slot_left", "slot_center", "slot_right", "spawn_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6550145, 0.229, 0.1703186)
+use_collision = true
+size = Vector3(1, 1, 3.2977905)
+script = ExtResource("6_tdvq3")
+slot_left = NodePath("Slot_Left")
+slot_center = NodePath("Slot_Center")
+slot_right = NodePath("Slot_Right")
+result_item_scene = ExtResource("2_1pn5f")
+spawn_point = NodePath("ResultSpawnPoint")
+
+[node name="Slot_Left" type="Area3D" parent="WorldObjects/Workstations/MedicineWorkstation" unique_id=1886855065 node_paths=PackedStringArray("snap_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.18214, 34.494392, -2.2657278)
+script = ExtResource("6_upuyy")
+snap_point = NodePath("SnapPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldObjects/Workstations/MedicineWorkstation/Slot_Left" unique_id=1643528417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.211662, -33.512566, 0.7160487)
+shape = SubResource("BoxShape3D_tdvq3")
+
+[node name="SnapPoint" type="Marker3D" parent="WorldObjects/Workstations/MedicineWorkstation/Slot_Left" unique_id=986050739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.11389, -33.629288, 0.68307257)
+gizmo_extents = 0.09
+
+[node name="Slot_Right" type="Area3D" parent="WorldObjects/Workstations/MedicineWorkstation" unique_id=1007306847 node_paths=PackedStringArray("snap_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.18214, 34.494392, -2.2657278)
+script = ExtResource("6_upuyy")
+snap_point = NodePath("SnapPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldObjects/Workstations/MedicineWorkstation/Slot_Right" unique_id=1472779044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.211662, -33.512566, 3.8047132)
+shape = SubResource("BoxShape3D_tdvq3")
+
+[node name="SnapPoint" type="Marker3D" parent="WorldObjects/Workstations/MedicineWorkstation/Slot_Right" unique_id=255595792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.12759, -33.629288, 3.8564987)
+gizmo_extents = 0.09
+
+[node name="Slot_Center" type="Area3D" parent="WorldObjects/Workstations/MedicineWorkstation" unique_id=212583435 node_paths=PackedStringArray("snap_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.18214, 34.494392, -2.2657278)
+script = ExtResource("6_upuyy")
+snap_point = NodePath("SnapPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldObjects/Workstations/MedicineWorkstation/Slot_Center" unique_id=1189622204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.211662, -33.512566, 2.0908513)
+shape = SubResource("BoxShape3D_tdvq3")
+
+[node name="SnapPoint" type="Marker3D" parent="WorldObjects/Workstations/MedicineWorkstation/Slot_Center" unique_id=1694630975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.12759, -33.629288, 2.1288388)
+gizmo_extents = 0.09
+
+[node name="ResultSpawnPoint" type="Marker3D" parent="WorldObjects/Workstations/MedicineWorkstation" unique_id=977765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7093682, 0)
+
+[node name="Entities" type="Node3D" parent="." unique_id=1525234077]
+
+[node name="CharacterBody3D" parent="Entities" unique_id=1034273110 instance=ExtResource("16_7htfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575749, 1.74599, -0.225034)
+
+[node name="Items" type="Node3D" parent="." unique_id=873973920 groups=["world_items_container"]]
+
+[node name="TestMedicine" parent="Items" unique_id=1456791178 instance=ExtResource("6_igwun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.545472, 0.5, 0.3646412)
+
+[node name="TestMedicine2" parent="Items" unique_id=599748759 instance=ExtResource("6_igwun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.990508, 0.5, 0.36766005)
+
+[node name="TestFiller" parent="Items" unique_id=983013570 instance=ExtResource("9_igwun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.529742, 0.5, 1.2054219)
+
+[node name="TestFiller2" parent="Items" unique_id=1349125484 instance=ExtResource("9_igwun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8474793, 0.5999805, 1.1505334)
+
+[node name="testfood" parent="Items" unique_id=1344583833 instance=ExtResource("2_igwun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.558613, 0.610011, 2.0911107)
+
+[node name="testdrink" parent="Items" unique_id=155513871 instance=ExtResource("2_1pn5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.361659, 0.19641101, 2.4593277)
+
+[node name="testmeds" parent="Items" unique_id=1048298679 instance=ExtResource("3_3o2rs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4256673, 0.5, -0.35021186)
+
+[node name="testmeds2" parent="Items" unique_id=1813076397 instance=ExtResource("3_3o2rs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.905652, 0.5, -0.35021186)
+
+[node name="Test_base" parent="Items" unique_id=1505869796 instance=ExtResource("10_1pn5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.460947, 0.500001, -0.030080676)
+
+[node name="Test_base2" parent="Items" unique_id=57736623 instance=ExtResource("10_1pn5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9535747, 0.500001, -0.030080676)
+
+[node name="FoldedCraftingTarp" parent="Items" unique_id=1289033815 instance=ExtResource("20_tarp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.08, 2.5)
+
+[node name="HeavyWardrobe" parent="Items" instance=ExtResource("23_wardrobe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.0, 8)
+
+[node name="UI" type="Node" parent="." unique_id=167879213]
+
+[node name="Interface" type="CanvasLayer" parent="UI" unique_id=1500827517]
+follow_viewport_enabled = true
+
+[node name="Control" type="Control" parent="UI/Interface" unique_id=1009053816 groups=["game_hud"]]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_hud")
+
+[node name="Crosshair" type="Control" parent="UI/Interface/Control" unique_id=1067607272]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("21_crosshair")
+
+[node name="ItemName" type="Label" parent="UI/Interface/Control" unique_id=501996289]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 24.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "asd"
+label_settings = SubResource("LabelSettings_hbo4u")
+
+[node name="hunger" type="ProgressBar" parent="UI/Interface/Control" unique_id=2138042804]
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.917
+anchor_right = 0.107
+anchor_bottom = 0.958
+offset_left = -575.0
+offset_top = 297.0
+offset_right = -436.0
+offset_bottom = 324.0
+grow_vertical = 0
+
+[node name="thirst" type="ProgressBar" parent="UI/Interface/Control" unique_id=1482065641]
+self_modulate = Color(0, 0.478431, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.958
+anchor_right = 0.107
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = 270.0
+offset_right = -437.0
+offset_bottom = 297.0
+grow_vertical = 0
+
+[node name="eep" type="ProgressBar" parent="UI/Interface/Control" unique_id=279436570]
+layout_mode = 0
+offset_left = -575.0
+offset_top = 243.0
+offset_right = -438.0
+offset_bottom = 270.0
+
+[node name="InteractIcon" type="TextureRect" parent="UI/Interface/Control" unique_id=1353278578]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 15.0
+offset_right = 14.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3o2rs")
+expand_mode = 1
+
+[node name="Time" type="Label" parent="UI/Interface/Control" unique_id=584537807]
+layout_mode = 0
+offset_left = 512.0
+offset_top = -311.0
+offset_right = 552.0
+offset_bottom = -288.0
+text = "time"
+script = ExtResource("4_tdvq3")
+
+[node name="Day" type="Label" parent="UI/Interface/Control" unique_id=1731906702]
+layout_mode = 0
+offset_left = 517.0
+offset_top = -276.0
+offset_right = 545.0
+offset_bottom = -253.0
+text = "day"
+script = ExtResource("5_7htfv")
+
+[node name="InventoryPanel" parent="UI/Interface" unique_id=454081033 instance=ExtResource("18_inventory_ui")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("22_pause")]

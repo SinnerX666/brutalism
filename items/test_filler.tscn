@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://g4pmaiif31b5"]
+
+[ext_resource type="Script" uid="uid://b10gioh7s6v6p" path="res://items/itemslogic/world_item.gd" id="1_world_item"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8hsk2"]
+size = Vector3(0.2044487, 0.19506836, 0.20837402)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1uh7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehcvs"]
+albedo_color = Color(0.478431, 0, 0, 1)
+
+[node name="FillerIngredient" type="RigidBody3D" unique_id=1349125484 groups=["filler", "pick", "world_item"]]
+script = ExtResource("1_world_item")
+item_id = "filler_ingredient"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1429123760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00016212463, 0.0032958984, 0.0006713867)
+shape = SubResource("BoxShape3D_8hsk2")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=921445750]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=885268025]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("BoxMesh_1uh7y")
+surface_material_override/0 = SubResource("StandardMaterial3D_ehcvs")

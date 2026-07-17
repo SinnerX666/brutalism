@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wardrobe"]
+size = Vector3(1.0, 2.0, 0.55)
+
+[sub_resource type="StandardMaterial3D" id="Mat_wardrobe"]
+albedo_color = Color(0.35, 0.22, 0.12, 1)
+roughness = 0.85
+
+[sub_resource type="BoxShape3D" id="BoxShape_wardrobe"]
+size = Vector3(1.0, 2.0, 0.55)
+
+[node name="HeavyWardrobe" type="RigidBody3D" groups=["world_item"]]
+mass = 200.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.55, 0)
+linear_damp = 2.5
+angular_damp = 8.0
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+continuous_cd = true
+can_sleep = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_wardrobe")
+surface_material_override/0 = SubResource("Mat_wardrobe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape_wardrobe")

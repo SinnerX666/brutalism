@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_main"]
+
+[node name="MainMenu" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_main")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.06, 0.08, 1)
+
+[node name="Center" type="CenterContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainButtons" type="VBoxContainer" parent="Root/Center"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="Root/Center/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Sacrum"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Root/Center/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Survival RPG"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Root/Center/MainButtons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="Root/Center/MainButtons"]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+text = "Nowa gra"
+
+[node name="OptionsButton" type="Button" parent="Root/Center/MainButtons"]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+text = "Opcje"
+
+[node name="QuitButton" type="Button" parent="Root/Center/MainButtons"]
+custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+text = "Wyjdź"
+
+[node name="OptionsHost" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuitDialog" type="ConfirmationDialog" parent="."]
+title = "Wyjdź z gry"
+ok_button_text = "Wyjdź"
+dialog_text = "Czy na pewno chcesz wyjść z gry?"

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://items/itemslogic/world_item.gd" id="1_world_item"]
+
+[sub_resource type="StandardMaterial3D" id="FoldedTarpMaterial"]
+albedo_color = Color(0.14, 0.29, 0.24, 1)
+roughness = 0.95
+
+[sub_resource type="CylinderMesh" id="FoldedTarpMesh"]
+material = SubResource("FoldedTarpMaterial")
+top_radius = 0.22
+bottom_radius = 0.22
+height = 0.8
+radial_segments = 16
+
+[sub_resource type="CylinderShape3D" id="FoldedTarpShape"]
+radius = 0.22
+height = 0.8
+
+[node name="FoldedCraftingTarp" type="RigidBody3D" groups=["world_item"]]
+mass = 0.8
+script = ExtResource("1_world_item")
+item_id = "crafting_tarp"
+display_name = "Rolled Crafting Tarp"
+collision_radius_override = 0.45
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals"]
+rotation = Vector3(0, 0, 1.5708)
+mesh = SubResource("FoldedTarpMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+rotation = Vector3(0, 0, 1.5708)
+shape = SubResource("FoldedTarpShape")

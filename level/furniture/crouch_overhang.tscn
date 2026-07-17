@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_beam"]
+albedo_color = Color(0.42, 0.38, 0.32, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="Mesh_top"]
+size = Vector3(2.4, 0.06, 1.2)
+
+[sub_resource type="BoxShape3D" id="Shape_top"]
+size = Vector3(2.4, 0.06, 1.2)
+
+[sub_resource type="BoxMesh" id="Mesh_leg"]
+size = Vector3(0.08, 0.84, 0.08)
+
+[sub_resource type="BoxShape3D" id="Shape_leg"]
+size = Vector3(0.08, 0.84, 0.08)
+
+[node name="CrouchOverhang" type="Node3D"]
+
+[node name="Top" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Top"]
+mesh = SubResource("Mesh_top")
+surface_material_override/0 = SubResource("Mat_beam")
+
+[node name="Collision" type="CollisionShape3D" parent="Top"]
+shape = SubResource("Shape_top")
+
+[node name="LegFL" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.42, -0.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="LegFL"]
+mesh = SubResource("Mesh_leg")
+surface_material_override/0 = SubResource("Mat_beam")
+
+[node name="Collision" type="CollisionShape3D" parent="LegFL"]
+shape = SubResource("Shape_leg")
+
+[node name="LegFR" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.42, -0.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="LegFR"]
+mesh = SubResource("Mesh_leg")
+surface_material_override/0 = SubResource("Mat_beam")
+
+[node name="Collision" type="CollisionShape3D" parent="LegFR"]
+shape = SubResource("Shape_leg")
+
+[node name="LegBL" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0.42, 0.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="LegBL"]
+mesh = SubResource("Mesh_leg")
+surface_material_override/0 = SubResource("Mat_beam")
+
+[node name="Collision" type="CollisionShape3D" parent="LegBL"]
+shape = SubResource("Shape_leg")
+
+[node name="LegBR" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.42, 0.5)
+
+[node name="Mesh" type="MeshInstance3D" parent="LegBR"]
+mesh = SubResource("Mesh_leg")
+surface_material_override/0 = SubResource("Mat_beam")
+
+[node name="Collision" type="CollisionShape3D" parent="LegBR"]
+shape = SubResource("Shape_leg")

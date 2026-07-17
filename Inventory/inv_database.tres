@@ -1,0 +1,117 @@
+[gd_resource type="InventoryDatabase" format=3 uid="uid://dlhqylbbgr23u"]
+
+[ext_resource type="Texture2D" uid="uid://bgo1n6dysnumf" path="res://UI/assets/eat_icon.png" id="1_food"]
+[ext_resource type="Texture2D" uid="uid://eb75xs18hul5" path="res://UI/assets/drink_icon.png" id="2_drink"]
+[ext_resource type="Texture2D" uid="uid://b1e86338jyktv" path="res://UI/assets/meds_icon.png" id="3_meds"]
+[ext_resource type="Texture2D" uid="uid://cf2ht33pwmbpf" path="res://UI/assets/pick_up_icon.png" id="4_ingredient"]
+[ext_resource type="Texture2D" uid="uid://d26wxf5wiboj7" path="res://UI/assets/tarp_icon.svg" id="5_tarp"]
+
+[sub_resource type="ItemCategory" id="ItemCategory_consumable"]
+id = "consumable"
+name = "Consumables"
+color = Color(0.25, 0.65, 0.35, 1)
+
+[sub_resource type="ItemCategory" id="ItemCategory_ingredient"]
+id = "ingredient"
+name = "Ingredients"
+color = Color(0.55, 0.35, 0.75, 1)
+
+[sub_resource type="ItemCategory" id="ItemCategory_tool"]
+id = "tool"
+name = "Tools"
+color = Color(0.25, 0.5, 0.45, 1)
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_food"]
+id = "test_food"
+max_stack = 16
+name = "Test Food"
+icon = ExtResource("1_food")
+properties = {
+"dropped_item": "res://items/testfood.tscn",
+"health_restore": 0.0,
+"hunger_restore": 20.0,
+"sanity_restore": 0.0,
+"thirst_restore": 0.0
+}
+categories = Array[ItemCategory]([SubResource("ItemCategory_consumable")])
+description = "Test food. Restores 20 hunger points."
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_drink"]
+id = "test_drink"
+max_stack = 16
+name = "Test Drink"
+icon = ExtResource("2_drink")
+properties = {
+"dropped_item": "res://items/testdrink.tscn",
+"health_restore": 0.0,
+"hunger_restore": 0.0,
+"sanity_restore": 0.0,
+"thirst_restore": 20.0
+}
+categories = Array[ItemCategory]([SubResource("ItemCategory_consumable")])
+description = "Test drink. Restores 20 thirst points."
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_meds"]
+id = "test_meds"
+max_stack = 16
+name = "Test Meds"
+icon = ExtResource("3_meds")
+properties = {
+"dropped_item": "res://items/testmeds.tscn",
+"health_restore": 0.0,
+"hunger_restore": 0.0,
+"sanity_restore": 20.0,
+"thirst_restore": 0.0
+}
+categories = Array[ItemCategory]([SubResource("ItemCategory_consumable")])
+description = "Test medicine. Restores 20 sanity points."
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_medicine_ingredient"]
+id = "medicine_ingredient"
+max_stack = 16
+name = "Medicine Ingredient"
+icon = ExtResource("4_ingredient")
+properties = {
+"dropped_item": "res://items/Test_medicine.tscn"
+}
+categories = Array[ItemCategory]([SubResource("ItemCategory_ingredient")])
+description = "A green ingredient accepted by the medicine slot."
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_base_ingredient"]
+id = "base_ingredient"
+max_stack = 16
+name = "Base Ingredient"
+icon = ExtResource("4_ingredient")
+properties = {
+"dropped_item": "res://items/test_base.tscn"
+}
+categories = Array[ItemCategory]([SubResource("ItemCategory_ingredient")])
+description = "A blue base ingredient used at the workstation."
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_filler_ingredient"]
+id = "filler_ingredient"
+max_stack = 16
+name = "Filler Ingredient"
+icon = ExtResource("4_ingredient")
+properties = {
+"dropped_item": "res://items/test_filler.tscn"
+}
+categories = Array[ItemCategory]([SubResource("ItemCategory_ingredient")])
+description = "A red filler ingredient used at the workstation."
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_crafting_tarp"]
+id = "crafting_tarp"
+max_stack = 1
+name = "Crafting Tarp"
+icon = ExtResource("5_tarp")
+properties = {
+"deployable": true,
+"deployable_scene": "res://crafting/tarp/crafting_tarp.tscn",
+"dropped_item": "res://crafting/tarp/crafting_tarp_folded.tscn"
+}
+categories = Array[ItemCategory]([SubResource("ItemCategory_tool")])
+description = "A portable tarp with three physical crafting slots."
+
+[resource]
+items = Array[ItemDefinition]([SubResource("ItemDefinition_food"), SubResource("ItemDefinition_drink"), SubResource("ItemDefinition_meds"), SubResource("ItemDefinition_medicine_ingredient"), SubResource("ItemDefinition_base_ingredient"), SubResource("ItemDefinition_filler_ingredient"), SubResource("ItemDefinition_crafting_tarp")])
+item_categories = Array[ItemCategory]([SubResource("ItemCategory_consumable"), SubResource("ItemCategory_ingredient"), SubResource("ItemCategory_tool")])

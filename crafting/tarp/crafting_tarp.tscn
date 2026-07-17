@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://crafting/tarp/crafting_tarp.gd" id="1_tarp"]
+[ext_resource type="Script" path="res://crafting/physical_crafting_slot.gd" id="2_slot"]
+[ext_resource type="Resource" path="res://crafting/tarp/tarp_recipe_database.tres" id="3_recipes"]
+
+[sub_resource type="StandardMaterial3D" id="TarpMaterial"]
+albedo_color = Color(0.18, 0.34, 0.29, 1)
+roughness = 0.92
+
+[sub_resource type="BoxMesh" id="TarpMesh"]
+material = SubResource("TarpMaterial")
+size = Vector3(2.4, 0.04, 1.8)
+
+[sub_resource type="BoxShape3D" id="TarpCollision"]
+size = Vector3(2.4, 0.08, 1.8)
+
+[sub_resource type="BoxShape3D" id="SlotShape"]
+size = Vector3(0.55, 0.35, 0.7)
+
+[node name="CraftingTarp" type="RigidBody3D" node_paths=PackedStringArray("slot_left", "slot_center", "slot_right", "result_spawn_point") groups=["deployable", "world_item"]]
+freeze = true
+script = ExtResource("1_tarp")
+item_id = "crafting_tarp"
+display_name = "Crafting Tarp"
+collision_radius_override = 1.5
+recipe_database = ExtResource("3_recipes")
+slot_left = NodePath("Slots/SlotLeft")
+slot_center = NodePath("Slots/SlotCenter")
+slot_right = NodePath("Slots/SlotRight")
+result_spawn_point = NodePath("ResultSpawnPoint")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals"]
+mesh = SubResource("TarpMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
+shape = SubResource("TarpCollision")
+
+[node name="Slots" type="Node3D" parent="."]
+
+[node name="SlotLeft" type="Area3D" parent="Slots" node_paths=PackedStringArray("snap_point")]
+position = Vector3(-0.75, 0.18, 0)
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("2_slot")
+snap_point = NodePath("SnapPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slots/SlotLeft"]
+shape = SubResource("SlotShape")
+
+[node name="SnapPoint" type="Marker3D" parent="Slots/SlotLeft"]
+position = Vector3(0, 0.12, 0)
+
+[node name="SlotCenter" type="Area3D" parent="Slots" node_paths=PackedStringArray("snap_point")]
+position = Vector3(0, 0.18, 0)
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("2_slot")
+snap_point = NodePath("SnapPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slots/SlotCenter"]
+shape = SubResource("SlotShape")
+
+[node name="SnapPoint" type="Marker3D" parent="Slots/SlotCenter"]
+position = Vector3(0, 0.12, 0)
+
+[node name="SlotRight" type="Area3D" parent="Slots" node_paths=PackedStringArray("snap_point")]
+position = Vector3(0.75, 0.18, 0)
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("2_slot")
+snap_point = NodePath("SnapPoint")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slots/SlotRight"]
+shape = SubResource("SlotShape")
+
+[node name="SnapPoint" type="Marker3D" parent="Slots/SlotRight"]
+position = Vector3(0, 0.12, 0)
+
+[node name="ResultSpawnPoint" type="Marker3D" parent="."]
+position = Vector3(0, 0.5, 1.25)

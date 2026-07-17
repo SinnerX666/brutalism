@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c0gsa2pogs53j"]
+
+[ext_resource type="Script" path="res://player/interactable_object.gd" id="1_interactable"]
+[ext_resource type="Texture2D" path="res://UI/assets/sleep_icon_32.png" id="2_sleep_icon"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_avoxr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vlst0"]
+size = Vector3(2.27052, 0.259644, 1.25574)
+
+[node name="Bed" type="StaticBody3D" unique_id=1907917233 groups=["beds", "interactable"]]
+script = ExtResource("1_interactable")
+display_name = "Bed"
+interaction_icon = ExtResource("2_sleep_icon")
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=2032516538]
+transform = Transform3D(2.26, 0, 0, 0, 0.245, 0, 0, 0, 1.255, 0, 0, 0)
+mesh = SubResource("BoxMesh_avoxr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=932309619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00565338, 0.000183105, -0.000549316)
+shape = SubResource("BoxShape3D_vlst0")

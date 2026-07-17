@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://UI/pause_menu.gd" id="1_pause"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("1_pause")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Center" type="CenterContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainPanel" type="VBoxContainer" parent="Root/Center"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Root/Center/MainPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Pauza"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Root/Center/MainPanel"]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+text = "Wznów"
+
+[node name="OptionsButton" type="Button" parent="Root/Center/MainPanel"]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+text = "Opcje"
+
+[node name="QuitButton" type="Button" parent="Root/Center/MainPanel"]
+custom_minimum_size = Vector2(260, 44)
+layout_mode = 2
+text = "Wyjdź"
+
+[node name="OptionsHost" type="Control" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuitDialog" type="ConfirmationDialog" parent="."]
+title = "Wyjdź z gry"
+ok_button_text = "Wyjdź"
+dialog_text = "Czy na pewno chcesz wyjść z gry?"

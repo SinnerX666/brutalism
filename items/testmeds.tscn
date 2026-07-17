@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dgq5kmbg3qu0c"]
+
+[ext_resource type="Script" uid="uid://b10gioh7s6v6p" path="res://items/itemslogic/world_item.gd" id="1_cu0ju"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e8ggg"]
+radius = 0.25
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cu0ju"]
+radius = 0.049804688
+height = 0.19378662
+
+[node name="TestMeds" type="RigidBody3D" unique_id=1813076397 groups=["meds", "world_item"]]
+script = ExtResource("1_cu0ju")
+item_id = "test_meds"
+sanity_restore = 20.0
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1014489419]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=1062425733]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("SphereMesh_e8ggg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=686810778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0036315918, 0)
+shape = SubResource("CapsuleShape3D_cu0ju")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cws3piofvwyhb"]
+
+[ext_resource type="Script" uid="uid://b10gioh7s6v6p" path="res://items/itemslogic/world_item.gd" id="1_qaygt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ilw7r"]
+height = 0.399292
+radius = 0.10253906
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qaygt"]
+
+[node name="TestDrink" type="RigidBody3D" unique_id=1993351551 groups=["drink", "world_item"]]
+script = ExtResource("1_qaygt")
+item_id = "test_drink"
+thirst_restore = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1948410156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0032348633, 0)
+shape = SubResource("CylinderShape3D_ilw7r")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=2036302699]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals" unique_id=2040216799]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qaygt")

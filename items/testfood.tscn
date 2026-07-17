@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0lpmtrupyxcu"]
+
+[ext_resource type="Script" path="res://items/itemslogic/world_item.gd" id="1_tu3xm"]
+[ext_resource type="ArrayMesh" uid="uid://bk271xpq8lbbo" path="res://items/appleassets/Object_444.obj" id="2_0v7og"]
+[ext_resource type="Texture2D" uid="uid://2eliecnb0oyp" path="res://items/appleassets/applespritetest.png" id="3_54ey7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxkrf"]
+albedo_texture = ExtResource("3_54ey7")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tspgt"]
+points = PackedVector3Array(-6, -0.00112534, -14.0008, -0.000734329, -7.5, -13.5007, -6, -0.00112534, -5.50108, -6, 7.99941, -13.5007, -0.500832, 7.99941, -19.5, -0.500832, -0.00112534, -19.5, -0.000734329, -7.5, -5.50108, 7.99892, -7.5, -13.5007, -0.000734329, -0.00112534, 0, -6, 7.99941, -5.50108, -0.000734329, 13, -13.5007, 7.49883, 7.99941, -19.5, 7.49883, -0.00112534, -19.5, 7.99892, -7.5, -5.50108, 8.49902, -7.00034, -13.0006, 13.5, -0.00112534, -14.0008, 7.99892, -0.00112534, 0, -0.000734329, 7.99941, 0, -0.000734329, 13, -6.00117, 7.49883, 13, -13.5007, 13.5, 7.99941, -14.0008, 13.5, -0.00112534, -6.00117, 7.99892, 7.99941, 0, 7.49883, 13, -6.00117, 13.5, 7.99941, -6.00117)
+
+[node name="TestFood" type="RigidBody3D" groups=["food", "world_item"]]
+script = ExtResource("1_tu3xm")
+item_id = "test_food"
+hunger_restore = 20.0
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Visuals"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+mesh = ExtResource("2_0v7og")
+surface_material_override/0 = SubResource("StandardMaterial3D_uxkrf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_tspgt")
