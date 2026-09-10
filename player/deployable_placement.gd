@@ -9,7 +9,7 @@ extends Node
 
 var player: CharacterBody3D
 var camera: Camera3D
-var inventory: GridInventory
+var inventory: InvGrid
 var preview: Node3D
 var deploy_scene: PackedScene
 var deploy_item_id: String = ""
@@ -29,7 +29,7 @@ func is_placing() -> bool:
 	return is_instance_valid(preview)
 
 
-func begin_placement(item_id: String, scene_path: String, source_inventory: GridInventory) -> bool:
+func begin_placement(item_id: String, scene_path: String, source_inventory: InvGrid) -> bool:
 	if is_placing() or camera == null or source_inventory == null:
 		return false
 

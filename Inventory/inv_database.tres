@@ -1,31 +1,22 @@
-[gd_resource type="InventoryDatabase" format=3 uid="uid://dlhqylbbgr23u"]
+[gd_resource type="Resource" script_class="InvDatabase" load_steps=10 format=3 uid="uid://dlhqylbbgr23u"]
 
-[ext_resource type="Texture2D" uid="uid://bgo1n6dysnumf" path="res://UI/assets/eat_icon.png" id="1_food"]
-[ext_resource type="Texture2D" uid="uid://eb75xs18hul5" path="res://UI/assets/drink_icon.png" id="2_drink"]
-[ext_resource type="Texture2D" uid="uid://b1e86338jyktv" path="res://UI/assets/meds_icon.png" id="3_meds"]
-[ext_resource type="Texture2D" uid="uid://cf2ht33pwmbpf" path="res://UI/assets/pick_up_icon.png" id="4_ingredient"]
-[ext_resource type="Texture2D" uid="uid://d26wxf5wiboj7" path="res://UI/assets/tarp_icon.svg" id="5_tarp"]
+[ext_resource type="Script" path="res://Inventory/inventory_database.gd" id="1_db"]
+[ext_resource type="Script" path="res://Inventory/item_definition.gd" id="2_item"]
+[ext_resource type="Texture2D" uid="uid://bgo1n6dysnumf" path="res://UI/assets/eat_icon.png" id="3_food"]
+[ext_resource type="Texture2D" uid="uid://eb75xs18hul5" path="res://UI/assets/drink_icon.png" id="4_drink"]
+[ext_resource type="Texture2D" uid="uid://b1e86338jyktv" path="res://UI/assets/meds_icon.png" id="5_meds"]
+[ext_resource type="Texture2D" uid="uid://cf2ht33pwmbpf" path="res://UI/assets/pick_up_icon.png" id="6_ingredient"]
+[ext_resource type="Texture2D" uid="uid://d26wxf5wiboj7" path="res://UI/assets/tarp_icon.svg" id="7_tarp"]
 
-[sub_resource type="ItemCategory" id="ItemCategory_consumable"]
-id = "consumable"
-name = "Consumables"
-color = Color(0.25, 0.65, 0.35, 1)
-
-[sub_resource type="ItemCategory" id="ItemCategory_ingredient"]
-id = "ingredient"
-name = "Ingredients"
-color = Color(0.55, 0.35, 0.75, 1)
-
-[sub_resource type="ItemCategory" id="ItemCategory_tool"]
-id = "tool"
-name = "Tools"
-color = Color(0.25, 0.5, 0.45, 1)
-
-[sub_resource type="ItemDefinition" id="ItemDefinition_food"]
+[sub_resource type="Resource" id="Item_food"]
+script = ExtResource("2_item")
 id = "test_food"
+display_name = "Test Food"
+description = "Test food. Restores 20 hunger points."
+icon = ExtResource("3_food")
 max_stack = 16
-name = "Test Food"
-icon = ExtResource("1_food")
+grid_width = 1
+grid_height = 1
 properties = {
 "dropped_item": "res://items/testfood.tscn",
 "health_restore": 0.0,
@@ -33,14 +24,16 @@ properties = {
 "sanity_restore": 0.0,
 "thirst_restore": 0.0
 }
-categories = Array[ItemCategory]([SubResource("ItemCategory_consumable")])
-description = "Test food. Restores 20 hunger points."
 
-[sub_resource type="ItemDefinition" id="ItemDefinition_drink"]
+[sub_resource type="Resource" id="Item_drink"]
+script = ExtResource("2_item")
 id = "test_drink"
+display_name = "Test Drink"
+description = "Test drink. Restores 20 thirst points."
+icon = ExtResource("4_drink")
 max_stack = 16
-name = "Test Drink"
-icon = ExtResource("2_drink")
+grid_width = 1
+grid_height = 1
 properties = {
 "dropped_item": "res://items/testdrink.tscn",
 "health_restore": 0.0,
@@ -48,14 +41,16 @@ properties = {
 "sanity_restore": 0.0,
 "thirst_restore": 20.0
 }
-categories = Array[ItemCategory]([SubResource("ItemCategory_consumable")])
-description = "Test drink. Restores 20 thirst points."
 
-[sub_resource type="ItemDefinition" id="ItemDefinition_meds"]
+[sub_resource type="Resource" id="Item_meds"]
+script = ExtResource("2_item")
 id = "test_meds"
+display_name = "Test Meds"
+description = "Test medicine. Restores 20 sanity points."
+icon = ExtResource("5_meds")
 max_stack = 16
-name = "Test Meds"
-icon = ExtResource("3_meds")
+grid_width = 1
+grid_height = 1
 properties = {
 "dropped_item": "res://items/testmeds.tscn",
 "health_restore": 0.0,
@@ -63,55 +58,61 @@ properties = {
 "sanity_restore": 20.0,
 "thirst_restore": 0.0
 }
-categories = Array[ItemCategory]([SubResource("ItemCategory_consumable")])
-description = "Test medicine. Restores 20 sanity points."
 
-[sub_resource type="ItemDefinition" id="ItemDefinition_medicine_ingredient"]
+[sub_resource type="Resource" id="Item_medicine"]
+script = ExtResource("2_item")
 id = "medicine_ingredient"
+display_name = "Medicine Ingredient"
+description = "A green ingredient accepted by the medicine slot."
+icon = ExtResource("6_ingredient")
 max_stack = 16
-name = "Medicine Ingredient"
-icon = ExtResource("4_ingredient")
+grid_width = 1
+grid_height = 1
 properties = {
 "dropped_item": "res://items/Test_medicine.tscn"
 }
-categories = Array[ItemCategory]([SubResource("ItemCategory_ingredient")])
-description = "A green ingredient accepted by the medicine slot."
 
-[sub_resource type="ItemDefinition" id="ItemDefinition_base_ingredient"]
+[sub_resource type="Resource" id="Item_base"]
+script = ExtResource("2_item")
 id = "base_ingredient"
+display_name = "Base Ingredient"
+description = "A blue base ingredient used at the workstation."
+icon = ExtResource("6_ingredient")
 max_stack = 16
-name = "Base Ingredient"
-icon = ExtResource("4_ingredient")
+grid_width = 1
+grid_height = 1
 properties = {
 "dropped_item": "res://items/test_base.tscn"
 }
-categories = Array[ItemCategory]([SubResource("ItemCategory_ingredient")])
-description = "A blue base ingredient used at the workstation."
 
-[sub_resource type="ItemDefinition" id="ItemDefinition_filler_ingredient"]
+[sub_resource type="Resource" id="Item_filler"]
+script = ExtResource("2_item")
 id = "filler_ingredient"
+display_name = "Filler Ingredient"
+description = "A red filler ingredient used at the workstation."
+icon = ExtResource("6_ingredient")
 max_stack = 16
-name = "Filler Ingredient"
-icon = ExtResource("4_ingredient")
+grid_width = 1
+grid_height = 1
 properties = {
 "dropped_item": "res://items/test_filler.tscn"
 }
-categories = Array[ItemCategory]([SubResource("ItemCategory_ingredient")])
-description = "A red filler ingredient used at the workstation."
 
-[sub_resource type="ItemDefinition" id="ItemDefinition_crafting_tarp"]
+[sub_resource type="Resource" id="Item_tarp"]
+script = ExtResource("2_item")
 id = "crafting_tarp"
+display_name = "Crafting Tarp"
+description = "A portable tarp with three physical crafting slots."
+icon = ExtResource("7_tarp")
 max_stack = 1
-name = "Crafting Tarp"
-icon = ExtResource("5_tarp")
+grid_width = 2
+grid_height = 2
 properties = {
 "deployable": true,
 "deployable_scene": "res://crafting/tarp/crafting_tarp.tscn",
 "dropped_item": "res://crafting/tarp/crafting_tarp_folded.tscn"
 }
-categories = Array[ItemCategory]([SubResource("ItemCategory_tool")])
-description = "A portable tarp with three physical crafting slots."
 
 [resource]
-items = Array[ItemDefinition]([SubResource("ItemDefinition_food"), SubResource("ItemDefinition_drink"), SubResource("ItemDefinition_meds"), SubResource("ItemDefinition_medicine_ingredient"), SubResource("ItemDefinition_base_ingredient"), SubResource("ItemDefinition_filler_ingredient"), SubResource("ItemDefinition_crafting_tarp")])
-item_categories = Array[ItemCategory]([SubResource("ItemCategory_consumable"), SubResource("ItemCategory_ingredient"), SubResource("ItemCategory_tool")])
+script = ExtResource("1_db")
+items = Array[InvItemDef]([SubResource("Item_food"), SubResource("Item_drink"), SubResource("Item_meds"), SubResource("Item_medicine"), SubResource("Item_base"), SubResource("Item_filler"), SubResource("Item_tarp")])

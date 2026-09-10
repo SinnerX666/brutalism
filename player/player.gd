@@ -88,7 +88,7 @@ var moveDir: Vector3
 @export var ground_yaw_sensitivity: float = 0.006
 
 @onready var interactRay = $Head/Camera3D/RayCast3D
-@onready var inventory: GridInventory = $Inventory
+@onready var inventory: InvGrid = $Inventory
 
 var heldObject: RigidBody3D
 var grabbedObject: RigidBody3D

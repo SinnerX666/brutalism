@@ -13,7 +13,7 @@ func _check(condition: bool, message: String) -> void:
 		push_error("Tarp smoke test: %s" % message)
 
 
-func _item_count(inventory: GridInventory, item_id: String) -> int:
+func _item_count(inventory: InvGrid, item_id: String) -> int:
 	var result := 0
 	for stack in inventory.stacks:
 		if stack != null and stack.item_id == item_id:
@@ -37,7 +37,7 @@ func _run() -> void:
 	await physics_frame
 
 	var player := get_first_node_in_group("player") as CharacterBody3D
-	var inventory := player.get_node("Inventory") as GridInventory
+	var inventory := player.get_node("Inventory") as InvGrid
 	var controller: Node = player.get_node("DeployablePlacement")
 	var crosshair := level.get_node("UI/Interface/Control/Crosshair") as Control
 	var items_container: Node = get_first_node_in_group("world_items_container")

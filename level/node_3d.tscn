@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c3kqvg22mbfyw"]
 
-[ext_resource type="FontFile" uid="uid://ckqpcjaa1xw3i" path="res://UI/fonts/Pixeled.ttf" id="1_jxtbs"]
 [ext_resource type="Script" uid="uid://dkprbocv1ravl" path="res://level/timelogic/time_manager.gd" id="1_upuyy"]
 [ext_resource type="PackedScene" uid="uid://cws3piofvwyhb" path="res://items/testdrink.tscn" id="2_1pn5f"]
 [ext_resource type="Texture2D" uid="uid://b1e86338jyktv" path="res://UI/assets/meds_icon.png" id="2_3o2rs"]
@@ -15,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d0hue4fvdqiet" path="res://items/test_base.tscn" id="10_1pn5f"]
 [ext_resource type="PackedScene" uid="uid://dq2n2u8q41xsv" path="res://player/Player.tscn" id="16_7htfv"]
 [ext_resource type="PackedScene" uid="uid://c0gsa2pogs53j" path="res://level/furniture/bed.tscn" id="17_oxx4a"]
-[ext_resource type="PackedScene" uid="uid://ntq224nsy6pt" path="res://UI/control.tscn" id="18_inventory_ui"]
+[ext_resource type="PackedScene" path="res://UI/inventory_ui.tscn" id="18_inventory_ui"]
 [ext_resource type="Script" uid="uid://5f67vwevn6ly" path="res://UI/hud.gd" id="19_hud"]
 [ext_resource type="PackedScene" path="res://crafting/tarp/crafting_tarp_folded.tscn" id="20_tarp"]
 [ext_resource type="Script" uid="uid://bogb0qv88a3is" path="res://UI/crosshair.gd" id="21_crosshair"]
@@ -48,7 +47,6 @@ albedo_color = Color(0.361665, 0.32551, 0.0802593, 1)
 size = Vector3(0.97198486, 1, 0.19916992)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hbo4u"]
-font = ExtResource("1_jxtbs")
 
 [node name="Node3D" type="Node3D" unique_id=1091554447]
 
