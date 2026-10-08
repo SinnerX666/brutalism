@@ -10,6 +10,32 @@ extends RigidBody3D
 @export_range(0.0, 5.0, 0.01) var collision_radius_override: float = 0.0
 
 
+func _ready() -> void:
+	apply_catalog()
+
+
+func apply_catalog() -> void:
+	if item_id.is_empty() or ItemCatalog == null:
+		return
+	var definition: InvItemDef = ItemCatalog.get_item(item_id)
+	if definition == null:
+		return
+
+	if display_name.is_empty():
+		display_name = definition.display_name
+	hunger_restore = float(definition.get_property("hunger_restore", hunger_restore))
+	thirst_restore = float(definition.get_property("thirst_restore", thirst_restore))
+	sanity_restore = float(definition.get_property("sanity_restore", sanity_restore))
+	health_restore = float(definition.get_property("health_restore", health_restore))
+
+	var tags: Variant = definition.get_property("tags", [])
+	if tags is Array:
+		for tag in tags:
+			var group_name := str(tag)
+			if not group_name.is_empty() and not is_in_group(group_name):
+				add_to_group(group_name)
+
+
 func use_item() -> void:
 	if not can_use():
 		return

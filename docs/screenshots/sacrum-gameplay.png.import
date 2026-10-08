@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgo1n6dysnumf"
-path="res://.godot/imported/eat_icon.png-b5ce874640da60605c07aa27995700c3.ctex"
+uid="uid://dpb7dwnc2dekc"
+path="res://.godot/imported/sacrum-gameplay.png-9fec3d7728741d3c8adf991607189c85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/assets/eat_icon.png"
-dest_files=["res://.godot/imported/eat_icon.png-b5ce874640da60605c07aa27995700c3.ctex"]
+source_file="res://docs/screenshots/sacrum-gameplay.png"
+dest_files=["res://.godot/imported/sacrum-gameplay.png-9fec3d7728741d3c8adf991607189c85.ctex"]
 
 [params]
 

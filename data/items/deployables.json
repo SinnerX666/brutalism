@@ -1,0 +1,19 @@
+{
+	"items": [
+		{
+			"id": "crafting_tarp",
+			"display_name": "Crafting Tarp",
+			"description": "A portable tarp with three physical crafting slots.",
+			"icon": "res://UI/assets/tarp_icon.svg",
+			"max_stack": 1,
+			"grid_width": 2,
+			"grid_height": 2,
+			"tags": ["deployable", "world_item"],
+			"mass": 1.8,
+			"preview_color": [0.18, 0.34, 0.29],
+			"deployable": true,
+			"deployable_scene": "res://crafting/tarp/crafting_tarp.tscn",
+			"dropped_item": "res://crafting/tarp/crafting_tarp_folded.tscn"
+		}
+	]
+}

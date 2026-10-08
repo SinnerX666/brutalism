@@ -16,6 +16,7 @@ var _preview_material := StandardMaterial3D.new()
 
 
 func _ready() -> void:
+	super._ready()
 	freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 	freeze = true
 	for slot in _get_slots():

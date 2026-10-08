@@ -327,7 +327,7 @@ func _drop_item(stack: InvItemStack) -> void:
 	var definition: InvItemDef = inventory.database.get_item(stack.item_id)
 	if definition == null:
 		return
-	var scene_path: String = str(definition.properties.get("dropped_item", ""))
+	var scene_path: String = ItemCatalog.dropped_scene_path(stack.item_id)
 	if scene_path.is_empty():
 		return
 	var packed_scene := load(scene_path) as PackedScene
@@ -336,6 +336,10 @@ func _drop_item(stack: InvItemStack) -> void:
 	var dropped_item := packed_scene.instantiate() as RigidBody3D
 	if dropped_item == null:
 		return
+	if dropped_item is WorldItem:
+		var world_item := dropped_item as WorldItem
+		world_item.item_id = stack.item_id
+		world_item.apply_catalog()
 	var safe_position: Variant = player.get_safe_item_spawn_position(dropped_item, 2.0)
 	if not safe_position is Vector3:
 		dropped_item.free()

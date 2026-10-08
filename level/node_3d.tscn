@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" path="res://UI/pause_menu.tscn" id="22_pause"]
 [ext_resource type="PackedScene" path="res://items/heavy_wardrobe.tscn" id="23_wardrobe"]
 [ext_resource type="PackedScene" path="res://level/furniture/crouch_overhang.tscn" id="24_crouch"]
+[ext_resource type="PackedScene" path="res://items/generic_world_item.tscn" id="25_generic"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -186,6 +187,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.08, 2.5)
 
 [node name="HeavyWardrobe" parent="Items" instance=ExtResource("23_wardrobe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.0, 8)
+
+[node name="RyeBread" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6, 0.4, 0.2)
+item_id = "rye_bread"
+
+[node name="CannedBeans" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 0.4, 0.6)
+item_id = "canned_beans"
+
+[node name="CheapVodka" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2, 0.4, 1.0)
+item_id = "cheap_vodka"
+
+[node name="Flashlight" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0, 0.4, 1.4)
+item_id = "flashlight"
+
+[node name="Matches" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.4, 1.8)
+item_id = "matches"
+
+[node name="Newspaper" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, 0.4, 2.2)
+item_id = "crumpled_newspaper"
+
+[node name="Gauze" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7, 0.4, 2.6)
+item_id = "gauze"
+
+[node name="BluntKnife" parent="Items" instance=ExtResource("25_generic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0.4, 3.0)
+item_id = "blunt_knife"
 
 [node name="UI" type="Node" parent="." unique_id=167879213]
 

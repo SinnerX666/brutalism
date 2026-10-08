@@ -1,0 +1,10 @@
+{
+	"files": [
+		"res://data/items/food.json",
+		"res://data/items/drinks.json",
+		"res://data/items/medical.json",
+		"res://data/items/ingredients.json",
+		"res://data/items/gear.json",
+		"res://data/items/deployables.json"
+	]
+}

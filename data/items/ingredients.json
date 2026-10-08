@@ -1,0 +1,67 @@
+{
+	"items": [
+		{
+			"id": "medicine_ingredient",
+			"display_name": "Medicine Ingredient",
+			"description": "A green ingredient accepted by the medicine slot.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 16,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["medicine", "pick", "world_item"],
+			"mass": 0.2,
+			"preview_color": [0.2, 0.7, 0.35],
+			"dropped_item": "res://items/Test_medicine.tscn"
+		},
+		{
+			"id": "base_ingredient",
+			"display_name": "Base Ingredient",
+			"description": "A blue base ingredient used at the workstation.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 16,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["base", "pick", "world_item"],
+			"mass": 0.2,
+			"preview_color": [0.2, 0.4, 0.75],
+			"dropped_item": "res://items/test_base.tscn"
+		},
+		{
+			"id": "filler_ingredient",
+			"display_name": "Filler Ingredient",
+			"description": "A red filler ingredient used at the workstation.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 16,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["filler", "pick", "world_item"],
+			"mass": 0.2,
+			"preview_color": [0.75, 0.2, 0.18],
+			"dropped_item": "res://items/test_filler.tscn"
+		},
+		{
+			"id": "empty_tin",
+			"display_name": "Pusta puszka",
+			"description": "Otworzona, wytarta od środka. Placeholder składnika i pojemnika.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 10,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.08,
+			"preview_color": [0.55, 0.55, 0.52]
+		},
+		{
+			"id": "rusty_scrap",
+			"display_name": "Zardzewiały złom",
+			"description": "Kawałek blachy o ostrych krawędziach. Na razie nic z nim nie zrobisz, ale zajmuje miejsce.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 8,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.4,
+			"preview_color": [0.45, 0.28, 0.18]
+		}
+	]
+}

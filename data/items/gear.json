@@ -1,0 +1,101 @@
+{
+	"items": [
+		{
+			"id": "rusted_key",
+			"display_name": "Zardzewiały klucz",
+			"description": "Do czego pasuje — nie wiadomo. Zęby starty, główkę ktoś owinął taśmą.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 1,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.05,
+			"preview_color": [0.5, 0.45, 0.28]
+		},
+		{
+			"id": "matches",
+			"display_name": "Zapałki",
+			"description": "Pudełko tekturowe, kilka zapałek jeszcze całych. Placeholder ognia i gotowania.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 6,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.03,
+			"preview_color": [0.72, 0.22, 0.18]
+		},
+		{
+			"id": "flashlight",
+			"display_name": "Latarka",
+			"description": "Chińska latarka z przełącznikiem, który zacina się w pół drogi. W środku pusto — bez baterii to tylko ciężki kawałek plastiku. Kiedyś ma dawać światło, na razie leży i czeka na drugi składnik.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 1,
+			"grid_width": 2,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.35,
+			"preview_color": [0.72, 0.62, 0.18]
+		},
+		{
+			"id": "battery_pack",
+			"display_name": "Baterie",
+			"description": "Para ogniw owinięta gumką. Nie wiadomo, ile jeszcze trzymają. Placeholder zasilania.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 8,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.1,
+			"preview_color": [0.2, 0.2, 0.22]
+		},
+		{
+			"id": "crumpled_newspaper",
+			"display_name": "Zgnieciona gazeta",
+			"description": "Lokalny tygodnik, data z początku dekady. Nagłówek obiecuje reformy, na trzeciej stronie ktoś zakreślił ogłoszenie o sprzedaży mebli. Papier jest tłusty od kurzu i nadaje się na podpałkę albo na to, żeby przez chwilę mieć co czytać, gdy sen nie przychodzi.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 3,
+			"grid_width": 2,
+			"grid_height": 2,
+			"tags": ["pick", "world_item"],
+			"mass": 0.08,
+			"preview_color": [0.78, 0.74, 0.62],
+			"sanity_restore": 5.0
+		},
+		{
+			"id": "pocket_radio",
+			"display_name": "Radio kieszonkowe",
+			"description": "Szum, trzaski, czasem obcy język. Bez baterii milczy. Placeholder na sygnały i sanity.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 1,
+			"grid_width": 2,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.28,
+			"preview_color": [0.35, 0.38, 0.42]
+		},
+		{
+			"id": "blunt_knife",
+			"display_name": "Tępy nóż",
+			"description": "Kuchenny, z obitym czubkiem. Do walki się nie nadaje, do otwierania puszek — ledwo.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 1,
+			"grid_width": 2,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.22,
+			"preview_color": [0.6, 0.6, 0.65]
+		},
+		{
+			"id": "dirty_rag",
+			"display_name": "Brudna szmata",
+			"description": "Pachnie rozpuszczalnikiem i kurzem. Placeholder czyszczenia, filtrowania, rzemiosła.",
+			"icon": "res://UI/assets/pick_up_icon.png",
+			"max_stack": 6,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["pick", "world_item"],
+			"mass": 0.07,
+			"preview_color": [0.42, 0.38, 0.3]
+		}
+	]
+}

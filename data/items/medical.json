@@ -1,0 +1,86 @@
+{
+	"items": [
+		{
+			"id": "test_meds",
+			"display_name": "Test Meds",
+			"description": "Prototype tablets. Restores a little sanity.",
+			"icon": "res://UI/assets/meds_icon.png",
+			"max_stack": 16,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["meds", "pick", "world_item"],
+			"mass": 0.05,
+			"preview_color": [0.85, 0.85, 0.9],
+			"sanity_restore": 20.0,
+			"dropped_item": "res://items/testmeds.tscn"
+		},
+		{
+			"id": "gauze",
+			"display_name": "Gaza",
+			"description": "Zwój jałowej gazy, trochę pożółkły na brzegach. Placeholder leczenia ran.",
+			"icon": "res://UI/assets/meds_icon.png",
+			"max_stack": 8,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["meds", "pick", "world_item"],
+			"mass": 0.06,
+			"preview_color": [0.92, 0.9, 0.86],
+			"health_restore": 8.0
+		},
+		{
+			"id": "iodine_bottle",
+			"display_name": "Jodyna",
+			"description": "Mała buteleczka z pipetą. Brązowa plama na etykiecie, korek klei się od środka. Dezynfekuje, szczypie, zostawia ślad na palcach.",
+			"icon": "res://UI/assets/meds_icon.png",
+			"max_stack": 4,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["meds", "pick", "world_item"],
+			"mass": 0.12,
+			"preview_color": [0.55, 0.28, 0.08],
+			"health_restore": 6.0,
+			"sanity_restore": -2.0
+		},
+		{
+			"id": "expired_pills",
+			"display_name": "Przeterminowane tabletki",
+			"description": "Blister bez ulotki. Część tabletek pokruszyła się w gniazdach. Ktoś ołłówkiem napisał na opakowaniu dawkowanie, ale cyfr już nie da się odczytać. Placeholder: skutki uboczne do ustalenia.",
+			"icon": "res://UI/assets/meds_icon.png",
+			"max_stack": 6,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["meds", "pick", "world_item"],
+			"mass": 0.04,
+			"preview_color": [0.75, 0.78, 0.7],
+			"sanity_restore": 8.0,
+			"health_restore": -4.0
+		},
+		{
+			"id": "alcohol_wipes",
+			"display_name": "Chusteczki nasączane",
+			"description": "Kilka saszetek. Alkohol częściowo wysechł, ale nadal szczypie w skórę.",
+			"icon": "res://UI/assets/meds_icon.png",
+			"max_stack": 12,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["meds", "pick", "world_item"],
+			"mass": 0.03,
+			"preview_color": [0.7, 0.82, 0.75],
+			"health_restore": 3.0
+		},
+		{
+			"id": "dirty_bandage",
+			"display_name": "Brudny bandaż",
+			"description": "Był używany albo leżał na podłodze. Lepiej niż nic, gorzej niż gaza.",
+			"icon": "res://UI/assets/meds_icon.png",
+			"max_stack": 4,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["meds", "pick", "world_item"],
+			"mass": 0.05,
+			"preview_color": [0.62, 0.52, 0.4],
+			"health_restore": 4.0,
+			"sanity_restore": -3.0
+		}
+	]
+}

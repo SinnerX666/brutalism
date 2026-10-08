@@ -24,6 +24,7 @@ config/icon="res://test/icon.svg"
 ScreenFader="*res://level/timelogic/screen_fader.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GameSettings="*res://UI/game_settings.gd"
+ItemCatalog="*res://Inventory/item_catalog.gd"
 
 [dialogic]
 

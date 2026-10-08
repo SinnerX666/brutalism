@@ -1,0 +1,103 @@
+{
+	"items": [
+		{
+			"id": "test_drink",
+			"display_name": "Test Drink",
+			"description": "Prototype bottle. Restores a little thirst.",
+			"icon": "res://UI/assets/drink_icon.png",
+			"max_stack": 16,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["drink", "pick", "world_item"],
+			"mass": 0.4,
+			"preview_color": [0.2, 0.45, 0.72],
+			"thirst_restore": 20.0,
+			"dropped_item": "res://items/testdrink.tscn"
+		},
+		{
+			"id": "tap_water_bottle",
+			"display_name": "Woda z kranu",
+			"description": "Ciepła, z posmakiem rur. Gasi pragnienie, ale nie budzi zaufania.",
+			"icon": "res://UI/assets/drink_icon.png",
+			"max_stack": 8,
+			"grid_width": 1,
+			"grid_height": 2,
+			"tags": ["drink", "pick", "world_item"],
+			"mass": 0.55,
+			"preview_color": [0.55, 0.7, 0.78],
+			"thirst_restore": 14.0,
+			"health_restore": -2.0
+		},
+		{
+			"id": "boiled_water",
+			"display_name": "Przegotowana woda",
+			"description": "Odstana w słoiku. Nadal smakuje metalem, ale jest bezpieczniejsza niż prosto z kranu.",
+			"icon": "res://UI/assets/drink_icon.png",
+			"max_stack": 6,
+			"grid_width": 1,
+			"grid_height": 2,
+			"tags": ["drink", "pick", "world_item"],
+			"mass": 0.5,
+			"preview_color": [0.7, 0.82, 0.88],
+			"thirst_restore": 22.0
+		},
+		{
+			"id": "cheap_vodka",
+			"display_name": "Tania wódka",
+			"description": "Czysta etykieta, mętna zawartość. W latach dziewięćdziesiątych taka butelka potrafiła załatwić więcej spraw niż rozmowa. Na trzeźwo pali przełyk i na chwilę wycisza głowę, potem zostawia gorszy bałagan.",
+			"icon": "res://UI/assets/drink_icon.png",
+			"max_stack": 3,
+			"grid_width": 1,
+			"grid_height": 2,
+			"tags": ["drink", "pick", "world_item"],
+			"mass": 0.7,
+			"preview_color": [0.85, 0.88, 0.92],
+			"thirst_restore": -8.0,
+			"sanity_restore": 12.0,
+			"health_restore": -6.0
+		},
+		{
+			"id": "instant_coffee",
+			"display_name": "Kawa rozpuszczalna",
+			"description": "Słoik z brązowym proszkiem. Bez wrzątku prawie nic nie daje. Placeholder pod późniejsze gotowanie.",
+			"icon": "res://UI/assets/drink_icon.png",
+			"max_stack": 8,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["drink", "pick", "world_item"],
+			"mass": 0.25,
+			"preview_color": [0.32, 0.2, 0.12],
+			"thirst_restore": -4.0,
+			"sanity_restore": 4.0
+		},
+		{
+			"id": "herbal_tea",
+			"display_name": "Herbata ziołowa",
+			"description": "Woreczki pachnące miętą i czymś stęchłym. Placeholder: kiedyś będzie wymagała wody.",
+			"icon": "res://UI/assets/drink_icon.png",
+			"max_stack": 10,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["drink", "pick", "world_item"],
+			"mass": 0.08,
+			"preview_color": [0.35, 0.5, 0.28],
+			"thirst_restore": 6.0,
+			"sanity_restore": 3.0
+		},
+		{
+			"id": "expired_cola",
+			"display_name": "Po terminie cola",
+			"description": "Gaz prawie uszedł. Słodka, kleista, nadal lepsza niż nic, jeśli nie myślisz o dnie puszki.",
+			"icon": "res://UI/assets/drink_icon.png",
+			"max_stack": 6,
+			"grid_width": 1,
+			"grid_height": 1,
+			"tags": ["drink", "pick", "world_item"],
+			"mass": 0.35,
+			"preview_color": [0.25, 0.08, 0.05],
+			"thirst_restore": 10.0,
+			"hunger_restore": 2.0,
+			"health_restore": -1.0
+		}
+	]
+}
