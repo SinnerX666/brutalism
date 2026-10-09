@@ -12,14 +12,9 @@ size = Vector3(1.0, 2.0, 0.55)
 
 [node name="HeavyWardrobe" type="RigidBody3D" groups=["world_item"]]
 mass = 200.0
-center_of_mass_mode = 1
-center_of_mass = Vector3(0, -0.55, 0)
 linear_damp = 2.5
-angular_damp = 8.0
-axis_lock_angular_x = true
-axis_lock_angular_z = true
+angular_damp = 1.25
 continuous_cd = true
-can_sleep = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_wardrobe")

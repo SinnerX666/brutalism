@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Material_asphalt"]
+albedo_color = Color(0.075, 0.078, 0.082, 1)
+roughness = 0.96
+
+[sub_resource type="StandardMaterial3D" id="Material_concrete"]
+albedo_color = Color(0.38, 0.39, 0.37, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="Mesh_road"]
+material = SubResource("Material_asphalt")
+size = Vector3(8, 0.1, 20)
+
+[sub_resource type="BoxShape3D" id="Shape_road"]
+size = Vector3(8, 0.1, 20)
+
+[sub_resource type="BoxMesh" id="Mesh_sidewalk"]
+material = SubResource("Material_concrete")
+size = Vector3(2, 0.24, 20)
+
+[sub_resource type="BoxShape3D" id="Shape_sidewalk"]
+size = Vector3(2, 0.24, 20)
+
+[node name="StreetSegment" type="Node3D" groups=["blockout_street"]]
+
+[node name="Road" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Mesh" type="MeshInstance3D" parent="Road"]
+mesh = SubResource("Mesh_road")
+
+[node name="Collision" type="CollisionShape3D" parent="Road"]
+shape = SubResource("Shape_road")
+
+[node name="SidewalkLeft" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.12, 0)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Mesh" type="MeshInstance3D" parent="SidewalkLeft"]
+mesh = SubResource("Mesh_sidewalk")
+
+[node name="Collision" type="CollisionShape3D" parent="SidewalkLeft"]
+shape = SubResource("Shape_sidewalk")
+
+[node name="SidewalkRight" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.12, 0)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Mesh" type="MeshInstance3D" parent="SidewalkRight"]
+mesh = SubResource("Mesh_sidewalk")
+
+[node name="Collision" type="CollisionShape3D" parent="SidewalkRight"]
+shape = SubResource("Shape_sidewalk")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://level/blockout/building_mass.tscn" id="1_building"]
+[ext_resource type="PackedScene" path="res://level/blockout/street_segment.tscn" id="2_street"]
+[ext_resource type="PackedScene" path="res://level/blockout/street_lamp_placeholder.tscn" id="3_lamp"]
+[ext_resource type="PackedScene" path="res://level/blockout/concrete_barrier.tscn" id="4_barrier"]
+
+[node name="UrbanTestBlock" type="Node3D" groups=["urban_blockout"]]
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="NorthWestBlock" parent="Buildings" instance=ExtResource("1_building")]
+transform = Transform3D(12, 0, 0, 0, 9, 0, 0, 0, 8, -10, 0, -15)
+
+[node name="NorthEastBlock" parent="Buildings" instance=ExtResource("1_building")]
+transform = Transform3D(14, 0, 0, 0, 12, 0, 0, 0, 8, 6, 0, -15)
+
+[node name="WestBlock" parent="Buildings" instance=ExtResource("1_building")]
+transform = Transform3D(8, 0, 0, 0, 10, 0, 0, 0, 20, -18, 0, 0)
+
+[node name="EastBlock" parent="Buildings" instance=ExtResource("1_building")]
+transform = Transform3D(8, 0, 0, 0, 15, 0, 0, 0, 20, 18, 0, 0)
+
+[node name="SouthWestBlock" parent="Buildings" instance=ExtResource("1_building")]
+transform = Transform3D(16, 0, 0, 0, 8, 0, 0, 0, 8, -11, 0, 22)
+
+[node name="SouthEastBlock" parent="Buildings" instance=ExtResource("1_building")]
+transform = Transform3D(18, 0, 0, 0, 11, 0, 0, 0, 8, 8, 0, 22)
+
+[node name="Streets" type="Node3D" parent="."]
+
+[node name="WestStreet" parent="Streets" instance=ExtResource("2_street")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -10, 0, 12)
+
+[node name="EastStreet" parent="Streets" instance=ExtResource("2_street")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 10, 0, 12)
+
+[node name="StreetProps" type="Node3D" parent="."]
+
+[node name="LampNorthWest" parent="StreetProps" instance=ExtResource("3_lamp")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -14, 0, 7)
+casts_shadows = true
+
+[node name="LampNorthEast" parent="StreetProps" instance=ExtResource("3_lamp")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 5, 0, 7)
+
+[node name="LampSouthWest" parent="StreetProps" instance=ExtResource("3_lamp")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -5, 0, 17)
+
+[node name="LampSouthEast" parent="StreetProps" instance=ExtResource("3_lamp")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 14, 0, 17)
+casts_shadows = true
+
+[node name="BarrierWest" parent="StreetProps" instance=ExtResource("4_barrier")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -7, 0, 8.2)
+
+[node name="BarrierEast" parent="StreetProps" instance=ExtResource("4_barrier")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 8, 0, 8.2)
+
+[node name="CourtyardBarrier" parent="StreetProps" instance=ExtResource("4_barrier")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -1.5, 0, -9.8)

@@ -379,8 +379,10 @@ func set_grabbed_object(body: Object) -> void:
 	grabbedObject.freeze = false
 	grabbedObject.linear_velocity = Vector3.ZERO
 	grabbedObject.angular_velocity = Vector3.ZERO
-	grabbedObject.axis_lock_angular_x = true
-	grabbedObject.axis_lock_angular_z = true
+	# Ciężki obiekt nadal podlega pełnej fizyce: może przewrócić się na krawędzi,
+	# po uderzeniu lub kiedy jego środek masy straci podparcie.
+	grabbedObject.axis_lock_angular_x = false
+	grabbedObject.axis_lock_angular_z = false
 
 
 func _prepare_held_physics(body: RigidBody3D) -> void:
@@ -502,10 +504,6 @@ func _update_grabbed_object() -> void:
 		(displacement * grab_push_spring + damping * grab_push_damping) * force_scale
 	)
 
-	# Blokada wywrotek: tylko yaw.
-	grabbedObject.angular_velocity = Vector3(0.0, grabbedObject.angular_velocity.y, 0.0)
-	grabbedObject.global_basis = Basis.from_euler(Vector3(0.0, grabbedObject.global_rotation.y, 0.0))
-
 	var mass_speed_factor: float = clampf(
 		grab_force_reference_mass / maxf(grabbedObject.mass, 0.01),
 		grab_min_speed_factor,
@@ -541,11 +539,16 @@ func _rotate_active_object(mouse_relative: Vector2) -> void:
 		heldObject.rotate(camera.global_basis.x.normalized(), pitch)
 		heldObject.angular_velocity = Vector3.ZERO
 	elif is_instance_valid(grabbedObject):
-		# Ciężkie obiekty: tylko yaw, mocno tłumiony masą (200 kg ≈ ledwo drgnie).
+		# Gracz steruje tylko yaw, ale zachowujemy fizyczny obrót X/Z (wywrotkę).
 		var mass_factor: float = _get_rotate_mass_factor(grabbedObject.mass, 0.004, 0.35)
 		var yaw_delta: float = -mouse_relative.x * ground_yaw_sensitivity * mass_factor
+		var tipping_velocity := Vector3(
+			grabbedObject.angular_velocity.x,
+			0.0,
+			grabbedObject.angular_velocity.z
+		)
 		grabbedObject.rotate_y(yaw_delta)
-		grabbedObject.angular_velocity = Vector3.ZERO
+		grabbedObject.angular_velocity = tipping_velocity
 
 
 func _get_rotate_mass_factor(mass: float, min_factor: float, max_factor: float) -> float:

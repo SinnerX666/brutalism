@@ -27,7 +27,7 @@ The project currently includes:
 - contextual interaction UI, main menu, settings, and pause menu;
 - dialogue foundations powered by Dialogic.
 
-The inventory architecture is implemented directly in GDScript and no longer depends on an external inventory framework. Item definitions are loaded from category-based JSON files, while stacks, placement rules, world interactions, and UI remain separated into focused components. See [`data/items/README.md`](data/items/README.md) for the catalog schema and contribution workflow.
+The inventory architecture is implemented directly in GDScript and no longer depends on an external inventory framework. Item definitions are loaded from category-based JSON files, while stacks, placement rules, world interactions, and UI remain separated into focused components. See [`data/items/README.md`](data/items/README.md) for the setting-driven direction of the item catalog and its open design questions.
 
 ## Development and prompt engineering
 

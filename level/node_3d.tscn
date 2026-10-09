@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" path="res://items/heavy_wardrobe.tscn" id="23_wardrobe"]
 [ext_resource type="PackedScene" path="res://level/furniture/crouch_overhang.tscn" id="24_crouch"]
 [ext_resource type="PackedScene" path="res://items/generic_world_item.tscn" id="25_generic"]
+[ext_resource type="PackedScene" path="res://level/blockout/urban_test_block.tscn" id="26_urban"]
+[ext_resource type="Script" path="res://level/timelogic/day_night_controller.gd" id="27_day_night"]
+[ext_resource type="Resource" path="res://level/timelogic/late_autumn_day_night.tres" id="28_day_profile"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -56,16 +59,28 @@ size = Vector3(0.97198486, 1, 0.19916992)
 [node name="TimeManager" type="Node3D" parent="Systems" unique_id=910842320 groups=["time_manager"]]
 script = ExtResource("1_upuyy")
 
+[node name="DayNightController" type="Node" parent="Systems" node_paths=PackedStringArray("time_manager", "sun", "world_environment")]
+script = ExtResource("27_day_night")
+profile = ExtResource("28_day_profile")
+time_manager = NodePath("../TimeManager")
+sun = NodePath("../../Environment/DirectionalLight3D")
+world_environment = NodePath("../../Environment/WorldEnvironment")
+
 [node name="Environment" type="Node3D" parent="." unique_id=734381209]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=425395644]
 transform = Transform3D(-0.8660253, -0.4330129, 0.2500001, 0, 0.49999994, 0.86602545, -0.50000024, 0.74999994, -0.43301257, 0, 0, 0)
 shadow_enabled = true
+directional_shadow_max_distance = 80.0
+directional_shadow_mode = 2
+directional_shadow_blend_splits = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1981437248]
 environment = SubResource("Environment_a0tk4")
 
 [node name="MapGeometry" type="Node3D" parent="." unique_id=814191704]
+
+[node name="UrbanTestBlock" parent="MapGeometry" instance=ExtResource("26_urban")]
 
 [node name="Floor" type="StaticBody3D" parent="MapGeometry" unique_id=2010760234]
 transform = Transform3D(66, 0, 0, 0, 66, 0, 0, 0, 66, 0, 0, 0)
