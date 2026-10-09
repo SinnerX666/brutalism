@@ -15,9 +15,12 @@ func _ready() -> void:
 
 
 func apply_catalog() -> void:
-	if item_id.is_empty() or ItemCatalog == null:
+	if item_id.is_empty():
 		return
-	var definition: InvItemDef = ItemCatalog.get_item(item_id)
+	var catalog := get_node_or_null("/root/ItemCatalog")
+	if catalog == null or not catalog.has_method("get_item"):
+		return
+	var definition: InvItemDef = catalog.get_item(item_id) as InvItemDef
 	if definition == null:
 		return
 

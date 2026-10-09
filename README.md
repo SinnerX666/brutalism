@@ -23,10 +23,11 @@ The project currently includes:
 - hunger, thirst, health, sanity, sleep, and a day/time cycle;
 - physical crafting stations and a deployable crafting tarp;
 - an original grid-based backpack with stacking, rotation, drag-and-drop, item use, and deployment;
+- a validated JSON item catalog for scalable names, descriptions, stats, tags, and world placeholders;
 - contextual interaction UI, main menu, settings, and pause menu;
 - dialogue foundations powered by Dialogic.
 
-The inventory architecture is implemented directly in GDScript and no longer depends on an external inventory framework. Item definitions, stacks, placement rules, world interactions, and UI are separated into focused components so the system can evolve without coupling gameplay to one screen.
+The inventory architecture is implemented directly in GDScript and no longer depends on an external inventory framework. Item definitions are loaded from category-based JSON files, while stacks, placement rules, world interactions, and UI remain separated into focused components. See [`data/items/README.md`](data/items/README.md) for the catalog schema and contribution workflow.
 
 ## Development and prompt engineering
 

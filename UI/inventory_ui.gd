@@ -327,7 +327,10 @@ func _drop_item(stack: InvItemStack) -> void:
 	var definition: InvItemDef = inventory.database.get_item(stack.item_id)
 	if definition == null:
 		return
-	var scene_path: String = ItemCatalog.dropped_scene_path(stack.item_id)
+	var catalog := get_node_or_null("/root/ItemCatalog")
+	if catalog == null or not catalog.has_method("dropped_scene_path"):
+		return
+	var scene_path := str(catalog.dropped_scene_path(stack.item_id))
 	if scene_path.is_empty():
 		return
 	var packed_scene := load(scene_path) as PackedScene

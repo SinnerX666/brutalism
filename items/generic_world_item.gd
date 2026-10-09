@@ -11,7 +11,10 @@ func _ready() -> void:
 func _apply_preview_visuals() -> void:
 	if _mesh == null:
 		return
-	var definition: InvItemDef = ItemCatalog.get_item(item_id) if ItemCatalog else null
+	var catalog := get_node_or_null("/root/ItemCatalog")
+	if catalog == null or not catalog.has_method("get_item"):
+		return
+	var definition: InvItemDef = catalog.get_item(item_id) as InvItemDef
 	if definition == null:
 		return
 
